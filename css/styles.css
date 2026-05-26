@@ -1,0 +1,340 @@
+/* ===========================
+   VARIABLES CSS
+=========================== */
+:root {
+  --color-fondo: #1a1a2e;
+  --color-primario: #e94560;
+  --color-secundario: #16213e;
+  --color-tarjeta: #0f3460;
+  --color-texto: #eaeaea;
+  --color-acento: #f5a623;
+  --fuente-titulo: 'Georgia', serif;
+  --fuente-cuerpo: 'Trebuchet MS', sans-serif;
+  --radio-borde: 12px;
+  --sombra: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* ===========================
+   RESET Y BASE
+=========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--fuente-cuerpo);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ===========================
+   ANIMACIONES CSS
+=========================== */
+
+/* Animación 1: entrada del header */
+@keyframes bajarHeader {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación 2: pulso en el ícono corona */
+@keyframes pulso {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.2); }
+}
+
+/* Animación 3: aparición de tarjetas */
+@keyframes aparecerTarjeta {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación 4: brillo en hover de tarjeta */
+@keyframes brillo {
+  0%   { box-shadow: 0 0 5px var(--color-primario); }
+  50%  { box-shadow: 0 0 20px var(--color-primario); }
+  100% { box-shadow: 0 0 5px var(--color-primario); }
+}
+
+/* ===========================
+   HEADER
+=========================== */
+header {
+  background-color: var(--color-secundario);
+  text-align: center;
+  padding: 40px 20px;
+  border-bottom: 3px solid var(--color-primario);
+  animation: bajarHeader 0.8s ease forwards;
+}
+
+.crown {
+  font-size: 3rem;
+  display: block;
+  animation: pulso 2s infinite;
+}
+
+header h1 {
+  font-family: var(--fuente-titulo);
+  font-size: 2.8rem;
+  color: var(--color-acento);
+  margin: 10px 0 5px;
+}
+
+.tagline {
+  font-size: 1rem;
+  color: var(--color-texto);
+  opacity: 0.7;
+}
+
+/* ===========================
+   MAIN E INTRO
+=========================== */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.intro {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.intro h2 {
+  font-size: 1.8rem;
+  color: var(--color-primario);
+  margin-bottom: 10px;
+}
+
+.intro p {
+  opacity: 0.8;
+}
+
+/* ===========================
+   TARJETAS DE CATEGORÍAS
+=========================== */
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+
+.category-card {
+  background-color: var(--color-tarjeta);
+  border-radius: var(--radio-borde);
+  padding: 30px 24px;
+  width: 220px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--color-texto);
+  box-shadow: var(--sombra);
+  animation: aparecerTarjeta 0.6s ease forwards;
+  transition: transform 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-8px);
+  animation: brillo 1s infinite;
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 14px;
+}
+
+.category-card h3 {
+  font-size: 1.3rem;
+  color: var(--color-acento);
+  margin-bottom: 8px;
+}
+
+.category-card p {
+  font-size: 0.9rem;
+  opacity: 0.75;
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: var(--color-secundario);
+  border-top: 2px solid var(--color-primario);
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-top: 60px;
+}
+
+/* ===========================
+   MEDIA QUERIES (RESPONSIVO)
+=========================== */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .categories {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .category-card {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  .intro h2 {
+    font-size: 1.3rem;
+  }
+}
+
+/* ===========================
+   NAVEGACIÓN ENTRE PÁGINAS
+=========================== */
+.breadcrumb {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 16px 20px;
+  background-color: var(--color-secundario);
+  border-bottom: 1px solid var(--color-tarjeta);
+}
+
+.breadcrumb a {
+  color: var(--color-acento);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+  color: var(--color-primario);
+}
+
+/* ===========================
+   TARJETAS DE JUEGOS
+=========================== */
+
+/* Animación 5: entrada de fichas de juego */
+@keyframes entradaFicha {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.games {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.game-card {
+  background-color: var(--color-tarjeta);
+  border-radius: var(--radio-borde);
+  padding: 28px 24px;
+  width: 280px;
+  text-align: center;
+  box-shadow: var(--sombra);
+  animation: entradaFicha 0.6s ease forwards;
+  transition: transform 0.3s ease;
+}
+
+.game-card:hover {
+  transform: translateY(-6px);
+}
+
+.game-icon {
+  font-size: 3rem;
+  margin-bottom: 14px;
+}
+
+.game-card h3 {
+  font-size: 1.4rem;
+  color: var(--color-acento);
+  margin-bottom: 10px;
+  font-family: var(--fuente-titulo);
+}
+
+.description {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+
+.price {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--color-primario);
+  margin-bottom: 10px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.descuento {
+  background-color: var(--color-primario);
+  color: white;
+}
+
+.sin-descuento {
+  background-color: var(--color-tarjeta);
+  border: 1px solid var(--color-acento);
+  color: var(--color-acento);
+}
+
+/* ===========================
+   MEDIA QUERIES PÁGINAS INTERNAS
+=========================== */
+@media (max-width: 768px) {
+  .games {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .game-card {
+    width: 90%;
+  }
+
+  .breadcrumb {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
