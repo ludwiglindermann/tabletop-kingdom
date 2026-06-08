@@ -1,10 +1,7 @@
 function validarFormulario() {
   let valido = true;
-
-  // Limpiar errores anteriores
   limpiarErrores();
 
-  // Obtener valores
   const nombre = document.getElementById('nombre').value.trim();
   const usuario = document.getElementById('usuario').value.trim();
   const correo = document.getElementById('correo').value.trim();
@@ -60,7 +57,7 @@ function validarFormulario() {
     valido = false;
   }
 
-  // Validar fecha de nacimiento (mínimo 13 años)
+  // Validar fecha de nacimiento
   if (fecha === '') {
     mostrarError('error-fecha', 'La fecha de nacimiento es obligatoria');
     valido = false;
@@ -78,12 +75,38 @@ function validarFormulario() {
     }
   }
 
-  // Mostrar mensaje de éxito
-  if (valido) {
-    const exito = document.getElementById('mensaje-exito');
-    exito.textContent = '¡Registro exitoso! Bienvenido a TableTop Kingdom 🎉';
-    exito.style.display = 'block';
+  if (!valido) return;
+
+  // Verificar si el correo ya existe
+  const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+  const existe = usuarios.find(u => u.correo === correo);
+  if (existe) {
+    mostrarError('error-correo', 'Ya existe una cuenta con ese correo');
+    return;
   }
+
+  // Guardar nuevo usuario
+  const nuevoUsuario = {
+    nombre: nombre,
+    usuario: usuario,
+    correo: correo,
+    password: password,
+    rol: "cliente",
+    fechaNacimiento: fecha,
+    direccion: document.getElementById('direccion').value.trim()
+  };
+
+  usuarios.push(nuevoUsuario);
+  localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+  // Mostrar mensaje de éxito
+  const exito = document.getElementById('mensaje-exito');
+  exito.textContent = '¡Registro exitoso! Redirigiendo al login...';
+  exito.style.display = 'block';
+
+  setTimeout(() => {
+    window.location.href = '../login.html';
+  }, 2000);
 }
 
 function mostrarError(id, mensaje) {

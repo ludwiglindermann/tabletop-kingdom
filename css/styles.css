@@ -434,3 +434,50 @@ footer {
   border-radius: 8px;
   background-color: rgba(76, 175, 80, 0.15);
 }
+
+/* ===========================
+   PANEL ADMINISTRADOR
+=========================== */
+.admin-card {
+  background-color: var(--color-tarjeta);
+  border-radius: var(--radio-borde);
+  padding: 28px 24px;
+  text-align: center;
+  box-shadow: var(--sombra);
+  transition: transform 0.3s ease;
+}
+
+.admin-card:hover {
+  transform: translateY(-6px);
+}
+
+.admin-icon {
+  font-size: 3rem;
+  margin-bottom: 14px;
+}
+
+.admin-card h3 {
+  font-size: 1.3rem;
+  color: var(--color-acento);
+  margin-bottom: 8px;
+  font-family: var(--fuente-titulo);
+}
+
+.admin-card p {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.table-dark {
+  background-color: var(--color-secundario) !important;
+}
+
+.table-dark th {
+  color: var(--color-acento) !important;
+  border-color: var(--color-tarjeta) !important;
+}
+
+.table-dark td {
+  color: var(--color-texto) !important;
+  border-color: var(--color-tarjeta) !important;
+}

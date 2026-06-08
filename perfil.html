@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mi Perfil - TableTop Kingdom</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <header>
+    <div class="logo-area">
+      <span class="crown">♟</span>
+      <h1>TableTop Kingdom</h1>
+      <p class="tagline">Mi Perfil</p>
+    </div>
+  </header>
+
+  <nav class="breadcrumb">
+    <a href="index.html">← Volver al inicio</a>
+    <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
+  </nav>
+
+  <main class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6">
+        <div class="form-container">
+          <h2 class="text-center mb-4">Modificar Perfil</h2>
+
+          <div class="mb-3">
+            <label class="form-label">Nombre completo</label>
+            <input type="text" id="nombre" class="form-control"/>
+            <small id="error-nombre" class="text-danger"></small>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Nombre de usuario</label>
+            <input type="text" id="usuario" class="form-control"/>
+            <small id="error-usuario" class="text-danger"></small>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Correo electrónico</label>
+            <input type="email" id="correo" class="form-control" disabled/>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Nueva contraseña <span class="opcional">(opcional)</span></label>
+            <input type="password" id="password" class="form-control" placeholder="Déjalo vacío para no cambiar"/>
+            <small id="error-password" class="text-danger"></small>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Repetir nueva contraseña <span class="opcional">(opcional)</span></label>
+            <input type="password" id="password2" class="form-control" placeholder="Repite la nueva contraseña"/>
+            <small id="error-password2" class="text-danger"></small>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Fecha de nacimiento</label>
+            <input type="date" id="fecha" class="form-control"/>
+            <small id="error-fecha" class="text-danger"></small>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Dirección de despacho <span class="opcional">(opcional)</span></label>
+            <input type="text" id="direccion" class="form-control"/>
+          </div>
+
+          <div class="d-flex gap-3 justify-content-center mt-4">
+            <button onclick="guardarPerfil()" class="btn-registro">Guardar cambios</button>
+            <button onclick="cerrarSesion()" class="btn-limpiar">Cerrar sesión</button>
+          </div>
+
+          <div id="mensaje-perfil" class="mensaje-exito mt-3"></div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 TableTop Kingdom — Todos los derechos reservados</p>
+  </footer>
+
+  <script src="js/perfil.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
