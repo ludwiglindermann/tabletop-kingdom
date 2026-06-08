@@ -481,3 +481,27 @@ footer {
   color: var(--color-texto) !important;
   border-color: var(--color-tarjeta) !important;
 }
+
+/* ===========================
+   MENÚ DE SESIÓN
+=========================== */
+.sesion-info {
+  margin-bottom: 10px;
+}
+
+.sesion-nombre {
+  color: var(--color-acento);
+  font-size: 1rem;
+}
+
+.sesion-botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.sesion-botones a,
+.sesion-botones button {
+  flex: 0 0 auto;
+}

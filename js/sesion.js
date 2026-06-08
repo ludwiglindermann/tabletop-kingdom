@@ -6,23 +6,33 @@ if (usuarioActivo) {
   // Usuario con sesión iniciada
   if (usuarioActivo.rol === "admin") {
     menuSesion.innerHTML = `
-      <span style="color: var(--color-acento);">👑 ${usuarioActivo.nombre}</span>
-      <a href="pages/admin.html" class="btn-registro ms-3">Panel Admin</a>
-      <a href="perfil.html" class="btn-limpiar ms-2">Mi perfil</a>
-      <button onclick="cerrarSesion()" class="btn-limpiar ms-2">Cerrar sesión</button>
+      <div class="sesion-info">
+        <span class="sesion-nombre">👑 ${usuarioActivo.nombre}</span>
+      </div>
+      <div class="sesion-botones">
+        <a href="pages/admin.html" class="btn-registro">Panel Admin</a>
+        <a href="perfil.html" class="btn-limpiar">Mi perfil</a>
+        <button onclick="cerrarSesion()" class="btn-limpiar">Cerrar sesión</button>
+      </div>
     `;
   } else {
     menuSesion.innerHTML = `
-      <span style="color: var(--color-acento);">👤 ${usuarioActivo.nombre}</span>
-      <a href="perfil.html" class="btn-registro ms-3">Mi perfil</a>
-      <button onclick="cerrarSesion()" class="btn-limpiar ms-2">Cerrar sesión</button>
+      <div class="sesion-info">
+        <span class="sesion-nombre">👤 ${usuarioActivo.nombre}</span>
+      </div>
+      <div class="sesion-botones">
+        <a href="perfil.html" class="btn-registro">Mi perfil</a>
+        <button onclick="cerrarSesion()" class="btn-limpiar">Cerrar sesión</button>
+      </div>
     `;
   }
 } else {
   // Sin sesión iniciada
   menuSesion.innerHTML = `
-    <a href="login.html" class="btn-registro">Iniciar sesión</a>
-    <a href="pages/registro.html" class="btn-limpiar ms-2">Crear cuenta</a>
+    <div class="sesion-botones">
+      <a href="login.html" class="btn-registro">Iniciar sesión</a>
+      <a href="pages/registro.html" class="btn-limpiar">Crear cuenta</a>
+    </div>
   `;
 }
 
